@@ -1,0 +1,47 @@
+name: staffmgmt
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: window 11
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Backend: Build and Test ASP.NET Core Web API
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0.4'  
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build backend
+        run: dotnet build --configuration Release
+
+      - name: Run backend tests
+        run: dotnet test --verbosity normal
+
+      # Frontend: Build and Test React.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '20.12.1' 
+
+      - name: Install frontend dependencies
+        run: npm install 
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Run frontend tests
+        run: npm test
