@@ -1,0 +1,28 @@
+.form-group-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-fields {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-fields label,
+.search-fields input,
+.search-fields select {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.date-pickers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.date-pickers .form-control {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
