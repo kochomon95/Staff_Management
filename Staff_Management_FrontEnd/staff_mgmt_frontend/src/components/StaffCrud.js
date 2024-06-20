@@ -106,8 +106,8 @@ function StaffCrud() {
     columnHeader: {
       fontWeight: 'bold',
     },
-  });  
-  
+  });
+
   const MyDocument = () => (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -149,7 +149,6 @@ function StaffCrud() {
       </Page>
     </Document>
   );
-  
 
   function toggleSearch() {
     setShowSearch(!showSearch);
@@ -343,6 +342,9 @@ function StaffCrud() {
           </div>
         )}
       </div>
+      <div className="container mt-4">
+        <h5>Total Staff Count: {staff.length}</h5>
+      </div>
       <table className="table table-dark table-striped">
         <thead>
           <tr>
@@ -391,7 +393,7 @@ const styles = StyleSheet.create({
   },
   table: {
     display: 'table',
-    width: '100%',
+    width: '90%',
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: '#bfbfbf',
